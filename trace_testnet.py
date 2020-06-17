@@ -9,5 +9,6 @@ if __name__ == '__main__':
         model.eval()
         sample = torch.rand(1,3,112,112)
         traced_script_module = torch.jit.trace(model, sample)
+        traced_script_module .eval()
         traced_script_module.save("trace_model.pt")
         print(traced_script_module)
